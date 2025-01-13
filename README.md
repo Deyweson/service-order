@@ -6,7 +6,7 @@ A **Service Order API** é uma API projetada para gerenciar ordens de serviço, 
 ## Funcionalidades
 
 - **Autenticação**
-  - Login de usuário
+  - Login de usuário ✔
 - **Gerenciamento de Ordens de Serviço**
   - Visualizar ordens em aberto
   - Criar uma nova ordem de serviço
