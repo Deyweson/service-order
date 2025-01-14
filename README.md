@@ -9,7 +9,7 @@ A **Service Order API** é uma API projetada para gerenciar ordens de serviço, 
   - Login de usuário ✔
 - **Gerenciamento de Ordens de Serviço**
   - Visualizar ordens em aberto
-  - Criar uma nova ordem de serviço
+  - Criar uma nova ordem de serviço ✔
   - Inicializar uma ordem de serviço
   - Finalizar uma ordem de serviço
   - Excluir uma ordem de serviço
@@ -35,12 +35,12 @@ A API utiliza os seguintes modelos para estruturar os dados:
 | Campo | Tipo  | Descrição |
 |--------|------|-------------|
 | `id`   | int  | Identificador único da ordem de serviço |
+| `client_id` | int  | Referência ao cliente |
+| `user_id` | int  | Referência ao usuário que criou |
 | `title` | string | Título da ordem |
-| `id_client` | int  | Referência ao cliente |
-| `id_user` | int  | Referência ao usuário que criou |
+| `order_date` | datetime | Data de criação da ordem |
+| `order_local` | string | Local onde será realizado o serviço |
 | `status` | string | Status atual da ordem |
-| `date` | datetime | Data de criação da ordem |
-| `local` | string | Local onde será realizado o serviço |
 
 ### **Order Info (Informações da Ordem)**
 | Campo | Tipo  | Descrição |

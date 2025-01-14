@@ -1,10 +1,8 @@
 import { NextFunction, Request, Response } from "express";
 import jwt, { JwtPayload } from "jsonwebtoken";
 import { env } from "../env";
-
-export interface CustomRequest extends Request {
-  token: string | JwtPayload;
-}
+import { CustomRequest } from "../@types/custom-request";
+import { decode } from "punycode";
 
 export const auth = async (req: CustomRequest, res: Response, next: NextFunction) => {
   try {
@@ -14,7 +12,10 @@ export const auth = async (req: CustomRequest, res: Response, next: NextFunction
     }
 
     const decoded = jwt.verify(token, env.JWT_SECRET);
-    (req as CustomRequest).token = decoded
+    const { id } = decoded as JwtPayload;
+
+    (req as CustomRequest).token = id
+
     next()
   } catch (er) {
     res.status(401).json({ message: "Invalid token" });

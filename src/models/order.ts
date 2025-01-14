@@ -1,10 +1,10 @@
 export interface IOrder {
   id: number
-  userId: number
-  clientId: number
+  user_id: number
+  client_id: number
   title: string
-  date: Date
-  local: string
+  order_date: Date
+  order_local: string
   status: OrderStatus
 }
 
