@@ -20,7 +20,6 @@ export const getOrderById = async (req: Request, res: Response) => {
     .join('clients', 'clients.id', 'orders.client_id')
     .join('users', 'users.id', 'orders.user_id')
     .where('orders.id', '=', id)
-    .where('orders.status', '=', 'EM_ABERTO')
     .orderBy('orders.order_date', 'asc')
     .first()
 

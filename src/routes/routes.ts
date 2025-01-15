@@ -9,7 +9,6 @@ const router = Router();
 
 router.use(userRouters)
 
-
 router.use(auth)
 router.use(orderRouters)
 router.use(clientRouters)
