@@ -1,7 +1,7 @@
 export interface IOrderInfo {
   id: number
-  userId: number
-  startDate: Date
-  endDate: Date
+  id_user: number
+  start_time: Date
+  end_time: Date
   description: string
 }
