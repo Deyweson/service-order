@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { z } from 'zod';
 import bcrypt from 'bcrypt';
 import { db } from "../../database/db";
 import { IUser } from "../../models/user";
+import { BadRequestError } from "../../errors/bad-request";
 
 
 
@@ -12,8 +12,7 @@ export const registerController = async (req: Request, res: Response) => {
 
   const validateUsername = await db<IUser>('users').where({ username }).first();
   if (validateUsername) {
-    res.status(400).json({ message: 'Username already exists' });
-    return
+    throw new BadRequestError("Username already exists");
   }
 
   const hashedPassword = await bcrypt.hash(password, 10);
