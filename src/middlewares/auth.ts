@@ -13,8 +13,8 @@ export const auth = async (req: CustomRequest, res: Response, next: NextFunction
 
     const decoded = jwt.verify(token, env.JWT_SECRET);
     const { id } = decoded as JwtPayload;
-
-    (req as CustomRequest).token = id
+    console.log(id);
+    req.token = id
 
     next()
   } catch (er) {

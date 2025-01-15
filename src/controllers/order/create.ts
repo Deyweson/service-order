@@ -3,7 +3,6 @@ import { CustomRequest } from "../../@types/custom-request"
 import { Response } from "express"
 import { db } from "../../database/db"
 import { IOrder } from "../../models/order"
-import { JwtPayload } from "jsonwebtoken";
 
 
 export const orderSchema = z.object({
@@ -16,7 +15,9 @@ export const orderSchema = z.object({
 export const CreateOrder = async (req: CustomRequest, res: Response) => {
 
   const { clientId, date, local, title } = orderSchema.parse(req.body)
+  console.log('userId', req.token)
   const userId = Number(req.token)
+
 
   const order = await db<IOrder>('orders').insert({
     client_id: clientId,
