@@ -17,6 +17,7 @@ create table orders (
   order_date DATETIME not null,
   order_local text not null,
   status text not null default 'EM_ABERTO',
+  cancellation_desc text
 
   foreign key (client_id) references clients(id),
   foreign key (user_id) references users(id),
