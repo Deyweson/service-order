@@ -56,3 +56,7 @@ A API utiliza os seguintes modelos para estruturar os dados:
 | `end_time` | datetime | Horário de término da ordem |
 | `description` | string | Descrição detalhada da ordem |
 
+
+## Fluxograma da aplicação
+
+![fluxograma](doc/Fluxograma.png)

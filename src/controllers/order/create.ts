@@ -3,6 +3,7 @@ import { CustomRequest } from "../../@types/custom-request"
 import { Response } from "express"
 import { db } from "../../database/db"
 import { IOrder } from "../../models/order"
+import { IOrderInfo } from "../../models/order-info"
 
 
 export const orderSchema = z.object({
@@ -26,6 +27,10 @@ export const CreateOrder = async (req: CustomRequest, res: Response) => {
     order_local: local,
     title,
   }).returning('*')
+
+  await db<IOrderInfo>('order_infos').insert({
+    order_id: order[0].id
+  })
 
   res.status(201).json(order)
   return
