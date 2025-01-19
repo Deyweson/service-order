@@ -1,12 +1,13 @@
 
 import { Router } from 'express';
 import { validateBody } from '../middlewares/validate-body';
-import { CreateOrder, orderSchema } from '../controllers/order/create';
+import { CreateOrder } from '../controllers/order/create';
 import { listOrders } from '../controllers/order/list';
 import { getOrderById } from '../controllers/order/getById';
 import { startOrderSchema } from '../schemas/start-order-schema';
 import { startOrder } from '../controllers/order/start';
 import { endOrder, endOrderSchema } from '../controllers/order/end';
+import { orderSchema } from '../schemas/order-schema';
 
 const orderRouters = Router();
 

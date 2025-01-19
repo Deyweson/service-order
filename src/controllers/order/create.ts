@@ -4,19 +4,14 @@ import { Response } from "express"
 import { db } from "../../database/db"
 import { IOrder } from "../../models/order"
 import { IOrderInfo } from "../../models/order-info"
+import { orderSchema } from "../../schemas/order-schema"
 
 
-export const orderSchema = z.object({
-  clientId: z.coerce.number(),
-  title: z.string().min(8),
-  date: z.coerce.date(),
-  local: z.string().min(10),
-})
+
 
 export const CreateOrder = async (req: CustomRequest, res: Response) => {
 
   const { clientId, date, local, title } = orderSchema.parse(req.body)
-  console.log('userId', req.token)
   const userId = Number(req.token)
 
 
